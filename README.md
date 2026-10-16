@@ -1,5 +1,7 @@
 # Marketing use cases for financial services, ranked and sequenced
 
+https://htmlpreview.github.io/?https://github.com/Debashish-Patra/AI-Use-Cases-for-Financial-Services/blob/main/Index.html
+
 Every use case is scored on value, effort and risk, then placed on a roadmap. Foundations come first, and high-risk cases wait behind gates.
 
 **34 use cases** · **10 start now** · **15 next** · **9 wait for gates** · **5 high risk**
