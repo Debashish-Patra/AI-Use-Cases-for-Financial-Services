@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>34 ways AI can improve marketing in financial services</title>
+<meta name="description" content="A plain-language guide to AI marketing use cases for banks, brokers, lenders, insurers and wealth firms, with what to start first.">
+<style>
+:root{
+  --bg:#faf9f6; --card:#fff; --ink:#1d1e22; --quiet:#5c606a; --line:#e0ded7; --tint:#f1efe9;
+  --now:#2a8a63; --now-soft:#e2f4ec; --next:#3b5bdb; --next-soft:#e6ebfc; --later:#7a7e88; --later-soft:#eeeeec;
+  --good:#2a8a63; --warn:#b97f0b; --bad:#c9382f; --good-soft:#e2f4ec; --warn-soft:#fbf0d9; --bad-soft:#fbe5e3;
+  --r:14px;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#131417; --card:#1c1e23; --ink:#ececee; --quiet:#a2a5ad; --line:#33363d; --tint:#23262c;
+    --now:#4cc093; --now-soft:#1d3a2f; --next:#8aa0f7; --next-soft:#252c4a; --later:#9a9da6; --later-soft:#26282d;
+    --good:#4cc093; --warn:#e8b13f; --bad:#ee7a72; --good-soft:#1d3a2f; --warn-soft:#3a2f14; --bad-soft:#40201e;}
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+header{padding:48px 0 12px}
+h1{font-size:clamp(28px,5vw,44px);line-height:1.1;margin:0 0 14px;letter-spacing:-.025em}
+.lead{font-size:19px;color:var(--quiet);max-width:58ch;margin:0}
+h2{font-size:26px;line-height:1.2;margin:0 0 6px;letter-spacing:-.015em}
+.sub{color:var(--quiet);margin:0 0 22px}
+section{padding:44px 0 4px}
+.howto{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.how{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.how b{display:block;margin-bottom:4px}
+.how p{margin:0;font-size:15px;color:var(--quiet)}
+.how .n{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--ink);color:var(--bg);font-size:14px;font-weight:700;margin-bottom:8px}
+.pill{display:inline-block;font-size:13px;line-height:1;padding:5px 10px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-weight:600;white-space:nowrap}
+.p-good{background:var(--good-soft);border-color:transparent;color:var(--good)}
+.p-warn{background:var(--warn-soft);border-color:transparent;color:var(--warn)}
+.p-bad{background:var(--bad-soft);border-color:transparent;color:var(--bad)}
+.p-pay{background:var(--next-soft);border-color:transparent;color:var(--next)}
+.p-eff{background:var(--tint);border-color:transparent;color:var(--quiet)}
+/* roadmap */
+.road{display:grid;grid-template-columns:1fr 44px 1fr 44px 1fr;align-items:stretch}
+.step{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;border-top:6px solid var(--c)}
+.step.now{--c:var(--now)} .step.next{--c:var(--next)} .step.later{--c:var(--later)}
+.step .k{font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--c)}
+.step h3{margin:2px 0 4px;font-size:21px;line-height:1.25}
+.step .d{color:var(--quiet);font-size:15px;margin:0 0 14px}
+.names{display:flex;flex-direction:column;gap:6px}
+.nm{display:block;text-align:left;background:var(--tint);border:0;border-radius:9px;padding:8px 11px;font:inherit;font-size:15px;line-height:1.35;color:var(--ink);cursor:pointer;text-decoration:none}
+.nm:hover{outline:2px solid var(--c)}
+.check{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-size:13px;color:var(--quiet);padding:0 4px;position:relative}
+.check .ic{width:32px;height:32px;border-radius:50%;border:2px solid var(--ink);display:grid;place-items:center;font-weight:700;background:var(--bg);margin-bottom:6px}
+.gatebox{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.gatebox div{background:var(--card);border:1px dashed var(--line);border-radius:var(--r);padding:14px 16px;font-size:15px;color:var(--quiet)}
+.gatebox b{color:var(--ink)}
+/* stage strip */
+.strip{display:flex;gap:0;margin:0 0 16px;overflow:auto;padding-bottom:4px}
+.stg{flex:1 1 0;min-width:112px;position:relative;border:0;background:var(--tint);color:var(--ink);font:inherit;font-size:13.5px;padding:10px 12px 10px 22px;cursor:pointer;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,0 100%,14px 50%);margin-right:-8px;text-align:center;line-height:1.25}
+.stg:first-child{clip-path:polygon(0 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,0 100%);padding-left:14px}
+.stg b{display:block;font-size:19px}
+.stg[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 20px}
+.filters label{font-size:15px;color:var(--quiet);margin-right:4px}
+.sec{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:6px 14px;font:inherit;font-size:14px;cursor:pointer}
+.sec[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+/* cards */
+.grp{margin:28px 0 8px}
+.grp h3{font-size:21px;margin:0 0 2px}
+.grp p{margin:0 0 12px;color:var(--quiet);font-size:15px}
+.cards{display:flex;flex-direction:column;gap:10px}
+details.uc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;border-left:6px solid var(--c)}
+details.uc.now{--c:var(--now)} details.uc.next{--c:var(--next)} details.uc.later{--c:var(--later)}
+details.uc[open]{box-shadow:0 6px 20px rgba(0,0,0,.07)}
+details.uc.flash{outline:3px solid var(--c)}
+summary{list-style:none;cursor:pointer;padding:16px 18px;display:block}
+summary::-webkit-details-marker{display:none}
+summary .t{font-size:18px;font-weight:700;line-height:1.3;display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+summary .t:after{content:"+";font-size:22px;line-height:1;color:var(--quiet)}
+details[open] summary .t:after{content:"\2212"}
+summary .pl{color:var(--quiet);margin:4px 0 10px;font-size:16px}
+.tags{display:flex;flex-wrap:wrap;gap:7px}
+.body{padding:0 18px 18px;display:grid;grid-template-columns:1fr 1fr;gap:14px 22px;font-size:16px}
+.body h4{margin:0 0 2px;font-size:13px;text-transform:uppercase;letter-spacing:.06em;color:var(--quiet)}
+.body p{margin:0}
+.body .full{grid-column:1/-1}
+.body .warn{background:var(--warn-soft);border-radius:10px;padding:10px 12px}
+.body .warn h4{color:var(--warn)}
+footer{padding:44px 0 64px;color:var(--quiet);font-size:15px}
+footer dl{display:grid;grid-template-columns:max-content 1fr;gap:6px 16px;margin:12px 0 0}
+footer dt{font-weight:700;color:var(--ink)} footer dd{margin:0}
+.hide{display:none!important}
+@media(max-width:860px){
+  .howto{grid-template-columns:1fr}
+  .road{grid-template-columns:1fr}
+  .check{flex-direction:row;gap:10px;padding:10px 0}
+  .check .ic{margin:0}
+  .check:after{content:attr(title);font-size:14px}
+  .gatebox{grid-template-columns:1fr}
+  .body{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>34 ways AI can improve marketing in financial services</h1>
+  <p class="lead">A plain-language guide for banks, brokers, lenders, insurers and wealth firms. It shows what each idea does, what it takes, and what to start first.</p>
+  <div class="howto">
+    <div class="how"><span class="n">1</span><b>Pick a step</b><p>Ideas are sorted into three steps: start now, then scale, wait until ready.</p></div>
+    <div class="how"><span class="n">2</span><b>Open any idea</b><p>Each one explains itself in everyday words, with an example.</p></div>
+    <div class="how"><span class="n">3</span><b>Check the three tags</b><p>Payoff is how much it helps. Effort is how hard it is. Risk is what could go wrong.</p></div>
+  </div>
+</header>
+
+<section id="steps">
+  <h2>Where to start</h2>
+  <p class="sub">Three steps, with a checkpoint in between. Click any idea to read about it.</p>
+  <div class="road" id="road"></div>
+  <div class="gatebox">
+    <div><b>Checkpoint 1.</b> Customers' consent and contact limits are respected everywhere, and we can compare customers who got a campaign with those who did not.</div>
+    <div><b>Checkpoint 2.</b> Compliance has approved the sensitive ideas, and the early ideas show real results.</div>
+  </div>
+</section>
+
+<section id="all">
+  <h2>Every idea, by stage of the customer journey</h2>
+  <p class="sub">Choose a stage to see only those ideas.</p>
+  <div class="strip" id="strip"></div>
+  <div class="filters" id="filters"></div>
+  <div id="list"></div>
+</section>
+
+<footer>
+  <b>Plain-English glossary</b>
+  <dl>
+    <dt>Lead</dt><dd>Someone who has shown interest but is not yet a customer.</dd>
+    <dt>KYC</dt><dd>The identity checks a customer completes to open an account.</dd>
+    <dt>CRM</dt><dd>The system where a company keeps customer and lead records.</dd>
+    <dt>SIP</dt><dd>A regular monthly investment of a fixed amount.</dd>
+    <dt>Compliance</dt><dd>The team that makes sure messages and offers follow the rules.</dd>
+    <dt>Comparison group</dt><dd>A small group of customers who do not get a campaign, so you can see what difference it made.</dd>
+  </dl>
+  <p style="margin-top:20px">The tags are judgement calls to review with your own data. To change anything, edit <code>usecases.json</code> and rebuild.</p>
+</footer>
+</div>
+
+<script>
+const DATA=[{"id":"F1","name":"Respect customer consent and contact limits","stage":"Basics","s":[],"v":4,"e":2,"r":1,"phase":"Now","plain":"Before any message goes out, the system checks three things: has this person agreed to hear from us, are they on a do-not-disturb list, and have we already contacted them too often this week?","example":"A customer who opted out of WhatsApp never gets a WhatsApp, and nobody gets more than a fixed number of messages a week.","why":"Protects customers from spam and the company from penalties. It also makes every other use case on this page safer.","watch":"Every channel (SMS, WhatsApp, email, calls) has to share one consent record.","build":"One consent record, plus a check in front of every channel."},{"id":"F2","name":"Prove what really works","stage":"Basics","s":[],"v":5,"e":2,"r":1,"phase":"Now","plain":"Keep a small group of customers aside who do not get a campaign, then compare them with the customers who did. The gap is the real impact.","example":"100,000 customers get a retention offer and 5,000 do not. If the 5,000 leave at nearly the same rate, the offer was not working.","why":"Stops money going into campaigns that only look good because those customers would have acted anyway.","watch":"Teams must be comfortable leaving some customers out on purpose.","build":"A random split inside the campaign tool and a weekly results report."},{"id":"F3","name":"One view of each customer","stage":"Basics","s":[],"v":5,"e":4,"r":2,"phase":"Now","plain":"Join up what the app, branch, partner, call centre and website each know, so a customer is one person and not four separate records.","example":"A customer who started KYC on the app and then phoned support is recognised as the same person.","why":"Every smart use case needs correct, up-to-date facts about the customer.","watch":"Matching records is slow and messy. Start with the most common channels.","build":"Matching rules (mobile number, PAN, email) and one customer table fed by app and call events."},{"id":"F4","name":"A library of pre-approved messages","stage":"Basics","s":[],"v":4,"e":2,"r":1,"phase":"Now","plain":"Compliance approves wording once, including claims, risk warnings and disclaimers. Marketers and AI can then only use those approved pieces.","example":"Every ad carries the right risk disclaimer because it is pulled from the library, not typed by hand.","why":"Lets teams move fast on ads and messages without sending each one for legal review.","watch":"The library must be updated whenever rules change.","build":"A tagged library of approved text and images, with AI limited to using it."},{"id":"F5","name":"Check the AI stays accurate and fair","stage":"Basics","s":[],"v":3,"e":3,"r":1,"phase":"Next","plain":"Regularly test whether the scoring models still predict well and treat different groups of customers fairly.","example":"A monthly report shows the model works as well for small-town customers as for metro customers.","why":"Models get worse over time and can quietly disadvantage some groups.","watch":"Someone must be responsible for reading the report and acting on it.","build":"A monitoring check on each model, reviewed monthly."},{"id":"A1","name":"Rank new leads and call the best first, fast","stage":"Win","s":[],"v":5,"e":2,"r":2,"phase":"Now","plain":"Give every new enquiry a score for how likely it is to become a customer, and send it to the right salesperson within minutes.","example":"Someone who spent five minutes on the fees page and downloaded a guide gets a call within 15 minutes. A casual browser gets an email instead.","why":"Most leads go cold within hours. Speed and focus decide who converts.","watch":"The score is only as good as the lead data. Start with simple rules.","build":"Lead data in the CRM plus routing rules. Add a model later."},{"id":"A2","name":"Find more people like your best customers","stage":"Win","s":[],"v":3,"e":2,"r":2,"phase":"Next","plain":"Share an anonymised list of your best customers (with their consent) with ad platforms, so your ads are shown to similar people.","example":"Ads reach people who look like your active investors instead of everyone.","why":"Brings in new customers at a lower cost than broad targeting.","watch":"Needs consent for sharing data and careful privacy handling.","build":"Anonymised customer lists sent to the ad platforms."},{"id":"A3","name":"Make ads faster with AI","stage":"Win","s":[],"v":3,"e":2,"r":3,"phase":"Next","plain":"AI takes one master ad and produces every size and language, and tries different versions for different groups.","example":"One video becomes a Story, a banner and a YouTube cut, in Hindi and Marathi, in an afternoon.","why":"Cuts design time and cost, and keeps ads fresh so people do not tire of them.","watch":"Every AI-made ad must be checked for claims and disclaimers before it runs.","build":"AI design tools fed from the approved message library, plus a compliance check."},{"id":"A4","name":"Change ads for each type of person while they run","stage":"Win","s":[],"v":3,"e":3,"r":3,"phase":"Later","plain":"The ad automatically shows the message most likely to suit each viewer, for example low fees for first-timers and research tools for active traders.","example":"Two people see the same ad slot but get different headlines.","why":"Higher click rates for the same spend.","watch":"Needs many ad versions, good audience data and a fast way to test.","build":"Many ad variants, audience data and a testing tool."},{"id":"A5","name":"Reward referrals","stage":"Win","s":[],"v":4,"e":3,"r":2,"phase":"Next","plain":"Spot customers who are likely to recommend us and offer them the right reward for doing so.","example":"A happy long-term client is prompted to refer friends and gets a fee waiver when they join.","why":"Referred customers usually cost less to win and stay longer.","watch":"Rewards must follow the rules on incentives, and fraud checks are needed.","build":"Referral tracking, a simple likelihood score and reward rules."},{"id":"A6","name":"A daily helper for partners, franchisees and agents","stage":"Win","s":["BRK","INS","BNK","LND"],"v":5,"e":3,"r":2,"phase":"Next","plain":"Give each partner a simple daily list: who to call today, which clients may be drifting away, and how their business is doing.","example":"A franchisee opens the app and sees Call these 8 clients today, with the reason next to each name.","why":"Much of the business flows through partners who have little data. This makes them more productive.","watch":"Partners must trust it. Start with a few and ask for feedback.","build":"A partner dashboard on top of lead and client data."},{"id":"A7","name":"Chat with new enquiries on WhatsApp","stage":"Win","s":[],"v":4,"e":3,"r":3,"phase":"Next","plain":"A chatbot asks a few questions, works out what the person needs and books a call with a human adviser.","example":"Interested in opening an account? Great, when should an adviser call you?","why":"Instant reply at any hour, so fewer leads are lost overnight.","watch":"Needs a smooth hand-over to a person and must stick to WhatsApp-approved message types.","build":"WhatsApp Business, approved conversation flows and a human hand-over."},{"id":"B1","name":"Stop applications failing before they start","stage":"Start","s":[],"v":5,"e":3,"r":2,"phase":"Now","plain":"Predict which applications will get stuck or rejected (wrong document, name mismatch, bank check failing) and warn the customer while they are still filling in the form.","example":"The name on your PAN and your bank account do not match. Upload this document instead.","why":"Drop-off during applications is usually the biggest single loss in the whole journey.","watch":"Do not ask for more personal data than needed.","build":"Past rejection data, field-level checks and targeted prompts."},{"id":"B2","name":"Help people who get stuck","stage":"Start","s":[],"v":5,"e":2,"r":2,"phase":"Now","plain":"If someone leaves a key step half-done, like KYC or adding funds, send a timely, helpful message with a link to carry on.","example":"Two minutes after someone drops off at Add Funds: Having trouble paying? Here is a quick guide.","why":"These people already want the product. A nudge costs little and recovers many.","watch":"Do not overdo it. One or two helpful messages, not a stream.","build":"Event triggers plus approved WhatsApp and in-app messages."},{"id":"B3","name":"AI phone call to people who got stuck","stage":"Start","s":[],"v":4,"e":4,"r":4,"phase":"Later","plain":"For high-value customers who drop off, an AI voice assistant calls, helps them finish, and records why they stopped.","example":"The assistant calls a customer whose payment failed and walks them through retrying.","why":"A call can fix problems that messages cannot, and the reasons collected help improve the product.","watch":"Calls about money need consent, do-not-disturb checks and good local-language quality. Start with a small pilot.","build":"A voice assistant, consent and call-time rules, and a pilot in a few languages."},{"id":"B4","name":"Guide new customers to their first transaction","stage":"Start","s":[],"v":4,"e":2,"r":2,"phase":"Now","plain":"After an account opens, send three or four timed tips that lead a new customer to their first trade, deposit or payment.","example":"Day 1: how to add money. Day 3: how to place your first order.","why":"Many accounts open but are never used.","watch":"Keep it educational. Never hint at what to buy.","build":"A short journey of timed messages and in-app tips."},{"id":"B5","name":"A checklist that adapts to the customer","stage":"Start","s":[],"v":3,"e":2,"r":1,"phase":"Next","plain":"A short to-do list in the app that shows only the steps this customer still needs to do.","example":"You have completed KYC. Next: add funds.","why":"Makes the next step obvious and reduces confusion.","watch":"Needs a reliable record of which steps are done.","build":"A small app change driven by onboarding events."},{"id":"G1","name":"Suggest the next product that suits the customer","stage":"Grow","s":[],"v":5,"e":4,"r":4,"phase":"Later","plain":"Recommend another product only when it fits the customer's goals and comfort with risk.","example":"A cautious saver is offered a recurring deposit, not leveraged trading.","why":"More products per customer, and fairer treatment.","watch":"Regulators care about suitability. Compliance must approve the rules.","build":"Product interest scores plus suitability rules, signed off by compliance."},{"id":"G2","name":"Help customers build a saving habit","stage":"Grow","s":["BRK","WLT","BNK","INS"],"v":4,"e":3,"r":2,"phase":"Next","plain":"Prompt customers to start regular investments or auto-pay, raise the amount gradually, and recover missed payments.","example":"On salary day: Start a monthly SIP toward your goal.","why":"Regular customers stay longer, and the habit is good for them too.","watch":"Keep the nudges about the goal, not about chasing returns.","build":"Goal prompts, auto-pay journeys and missed-payment triggers."},{"id":"G3","name":"Offer help at big life moments","stage":"Grow","s":["BNK","INS","LND","WLT"],"v":4,"e":4,"r":3,"phase":"Later","plain":"Spot changes like a new job, a home purchase or a new baby and offer something relevant at that moment.","example":"After the first home-loan payment, the customer is offered home insurance.","why":"Relevant offers at the right moment are far more likely to be accepted.","watch":"Reading life events from transactions can feel intrusive. Be transparent.","build":"Transaction signals plus a life-event detector."},{"id":"G4","name":"Offer leveraged products to likely buyers","stage":"Grow","s":["BRK"],"v":4,"e":3,"r":5,"phase":"Later","plain":"Show products like options or margin funding to customers who seem likely to be interested.","example":"A frequent trader sees an options strategy card on the dashboard.","why":"High revenue per customer.","watch":"Highest-risk idea on this page. The market regulator's own studies show most individual derivatives traders lose money. It needs suitability checks, and the risk alerts must always be able to override it.","build":"Only after suitability rules and compliance sign-off."},{"id":"G5","name":"An app home screen that fits the person","stage":"Grow","s":[],"v":3,"e":4,"r":2,"phase":"Later","plain":"The app's first screen changes by customer type: a trader sees charts, an investor sees SIPs and funds.","example":"Same app, two different home screens.","why":"Customers find what they need faster.","watch":"This is mainly a product change, not a marketing one.","build":"A customer-type model and a flexible home screen."},{"id":"G6","name":"Personal offers and pricing","stage":"Grow","s":[],"v":4,"e":4,"r":4,"phase":"Later","plain":"Offer each customer the fee waiver or rate most likely to win or keep them.","example":"A valuable customer thinking of leaving is offered a lower fee.","why":"Better use of discounts.","watch":"Fairness and regulation matter. Finance and compliance must set the limits.","build":"Pricing tests with approved limits."},{"id":"G7","name":"Prepare relationship managers before meetings","stage":"Grow","s":["WLT","BNK","BRK","INS"],"v":4,"e":3,"r":3,"phase":"Next","plain":"A one-page brief before each client call: holdings, recent activity, topics to raise and approved talking points.","example":"The manager opens the client's page and sees a ready summary instead of searching five systems.","why":"Better conversations in less preparation time.","watch":"Advice stays with the human adviser. The brief only prepares them.","build":"A customer summary plus approved talking points."},{"id":"R1","name":"Spot customers drifting away and win them back","stage":"Keep","s":[],"v":5,"e":3,"r":2,"phase":"Next","plain":"Notice customers who trade, deposit or log in less, then reach them early with something relevant. Focus on the ones the nudge can actually change.","example":"A customer who has not traded in 45 days gets a useful learning note. If there is no response, their adviser calls.","why":"Keeping a customer is cheaper than finding a new one.","watch":"Do not spend effort on people who would have stayed anyway. Check against the comparison group.","build":"Simple inactivity rules first, then a model, tested against a comparison group."},{"id":"R3","name":"AI helper for customer support","stage":"Keep","s":[],"v":4,"e":3,"r":3,"phase":"Next","plain":"A chatbot answers common questions from approved help articles and hands over to a person when it cannot.","example":"How do I change my bank account? gets a clear answer in seconds.","why":"Faster answers and lower support cost.","watch":"A wrong answer about money is costly. It must only use approved content.","build":"Search over approved help content plus a hand-over to agents."},{"id":"R4","name":"Learn from what customers say","stage":"Keep","s":[],"v":4,"e":2,"r":1,"phase":"Now","plain":"AI reads call transcripts, chats, app reviews and social posts and lists the top reasons customers are unhappy.","example":"Report: top reason for drop-off this month is payment failures with one bank.","why":"Shows what to fix, cheaply and fast.","watch":"Remove personal details before analysis.","build":"AI tagging of transcripts and reviews, with a monthly themes report."},{"id":"R5","name":"Watch social media and handle complaints quickly","stage":"Keep","s":[],"v":4,"e":3,"r":2,"phase":"Next","plain":"Track mentions of the brand, tag whether they are positive or negative, and send complaints to the right team with a deadline.","example":"A negative post about a failed withdrawal creates a ticket marked urgent.","why":"Protects reputation and helps meet complaint deadlines.","watch":"A person must review replies to serious complaints.","build":"A social listening feed, a sentiment tagger and ticket routing by deadline."},{"id":"R6","name":"Send messages at the best time","stage":"Keep","s":[],"v":2,"e":1,"r":1,"phase":"Now","plain":"Send each message at the time that person is most likely to read it.","example":"One customer gets messages at 8am, another at 9pm.","why":"An easy gain, built into most messaging tools.","watch":"Gains are small, and it does not replace contact limits.","build":"A feature already present in most messaging tools."},{"id":"R7","name":"Personalised rewards","stage":"Keep","s":["BNK","PAY","INS"],"v":3,"e":3,"r":2,"phase":"Later","plain":"Offer rewards each customer actually values instead of the same for everyone.","example":"A frequent traveller gets travel points. A saver gets a fee discount.","why":"Makes loyalty programmes feel relevant.","watch":"Needs a clear rewards catalogue and spend data.","build":"A rewards catalogue plus preference data."},{"id":"P1","name":"Alerts for risky trading behaviour","stage":"Protect","s":["BRK"],"v":4,"e":3,"r":3,"phase":"Next","plain":"If a customer is on a long losing streak or using heavy leverage, send a caution and offer to connect them with an adviser.","example":"You have had several losing days in a row. Would you like to talk to an adviser?","why":"Builds trust and avoids harm and complaints.","watch":"Wording must be cleared by compliance, and it should never feel like a lecture.","build":"Live trade events, alert rules and an adviser call task."},{"id":"P2","name":"Simple education at the right moment","stage":"Protect","s":[],"v":3,"e":2,"r":2,"phase":"Next","plain":"Short plain-language lessons sent when they are useful, such as before a customer's first options trade.","example":"A two-minute explainer on margin appears before the first margin order.","why":"Informed customers make fewer costly mistakes.","watch":"Keep content balanced and approved.","build":"Approved content plus event triggers."},{"id":"P3","name":"Warn customers about scams","stage":"Protect","s":[],"v":3,"e":2,"r":1,"phase":"Next","plain":"Message customers about fake calls, phishing and impersonators, especially when a scam wave is in the news.","example":"We never ask for your OTP. Here is how to spot a fake call.","why":"Prevents losses and builds trust.","watch":"Keep the tone calm and clear.","build":"Approved templates sent when a known scam is active."},{"id":"P4","name":"Reach out before a payment is missed","stage":"Protect","s":["LND","BNK"],"v":4,"e":3,"r":4,"phase":"Later","plain":"Spot loan customers who are likely to miss a payment and offer a reminder or help early.","example":"A friendly reminder plus a payment option three days before the due date.","why":"Fewer defaults and a kinder experience.","watch":"Collections rules are strict. Tone and timing must be approved.","build":"A repayment-risk score with collections and compliance review."}];
+const sectors={BRK:'Broking',BNK:'Banking',LND:'Lending',INS:'Insurance',WLT:'Wealth and funds',PAY:'Payments'};
+const stages=[['Basics','Get the basics right','🧱','Foundations every other idea relies on.'],['Win','Win new customers','🧲','Find and attract the right people.'],['Start','Get them started','🚀','Help new customers finish setup and take a first step.'],['Grow','Grow the relationship','🌱','Offer more of what suits each customer.'],['Keep','Keep them happy','🤝','Stay close, fix problems and prevent customers leaving.'],['Protect','Look after them','🛡️','Build trust by guarding customers from harm.']];
+const phases={Now:['Step 1','Start now','Quick wins and the basics. Low risk, easy to begin.','now'],Next:['Step 2','Then scale','Once step 1 shows results and checkpoint 1 is passed.','next'],Later:['Step 3','Wait until ready','Harder or riskier. Only after checkpoint 2.','later']};
+const payoff=v=>v>=5?['Payoff: very high','p-pay']:v===4?['Payoff: high','p-pay']:v===3?['Payoff: medium','p-pay']:['Payoff: small','p-pay'];
+const effort=e=>e<=2?'Effort: easy':e===3?'Effort: moderate':'Effort: hard';
+const risk=r=>r<=2?['Risk: low','p-good']:r===3?['Risk: medium','p-warn']:['Risk: high','p-bad'];
+let stage='All',sector='ALL';
+const $=s=>document.querySelector(s);
+const on=d=>sector==='ALL'||d.s.length===0||d.s.includes(sector);
+const rank=(a,b)=>(b.v*2-b.e-b.r)-(a.v*2-a.e-a.r);
+function tags(d){const p=payoff(d.v),r=risk(d.r);return `<span class="pill ${p[1]}">${p[0]}</span><span class="pill p-eff">${effort(d.e)}</span><span class="pill ${r[1]}">${r[0]}</span>`}
+function card(d){
+  const secs=d.s.length?d.s.map(k=>sectors[k]).join(', '):'All financial services';
+  return `<details class="uc ${d.phase.toLowerCase()}" id="uc-${d.id}"><summary><div class="t"><span>${d.name}</span></div><p class="pl">${d.plain}</p><div class="tags">${tags(d)}<span class="pill">${phases[d.phase][1]}</span></div></summary>
+  <div class="body"><div class="full"><h4>Example</h4><p>${d.example}</p></div><div><h4>Why it matters</h4><p>${d.why}</p></div><div><h4>What it takes</h4><p>${d.build}</p></div><div class="full warn"><h4>Watch out for</h4><p>${d.watch}</p></div><div class="full"><h4>Relevant for</h4><p>${secs}</p></div></div></details>`;
+}
+function render(){
+  const act=DATA.filter(on);
+  $('#road').innerHTML=['Now','Next','Later'].map((p,i)=>{
+    const ph=phases[p],items=act.filter(d=>d.phase===p).sort(rank);
+    const col=`<div class="step ${ph[3]}"><div class="k">${ph[0]}</div><h3>${ph[1]} <span class="pill">${items.length}</span></h3><p class="d">${ph[2]}</p><div class="names">${items.map(d=>`<a class="nm" href="#uc-${d.id}" data-id="${d.id}">${d.name}</a>`).join('')}</div></div>`;
+    const chk=i<2?`<div class="check" title="Checkpoint ${i+1}"><div class="ic">${i+1}</div></div>`:'';
+    return col+chk;
+  }).join('');
+  $('#strip').innerHTML=[['All','Everything','',''],...stages].map(s=>{const n=s[0]==='All'?act.length:act.filter(d=>d.stage===s[0]).length;return `<button class="stg" data-stage="${s[0]}" aria-pressed="${stage===s[0]}"><b>${n}</b><span>${s[2]?s[2]+' ':''}${s[1]}</span></button>`}).join('');
+  $('#filters').innerHTML='<label>Show ideas for:</label>'+[['ALL','All sectors'],...Object.entries(sectors)].map(([k,v])=>`<button class="sec" data-sec="${k}" aria-pressed="${sector===k}">${v}</button>`).join('');
+  $('#list').innerHTML=stages.filter(s=>stage==='All'||stage===s[0]).map(s=>{const items=act.filter(d=>d.stage===s[0]).sort(rank);if(!items.length)return '';return `<div class="grp"><h3>${s[2]} ${s[1]}</h3><p>${s[3]}</p><div class="cards">${items.map(card).join('')}</div></div>`}).join('')||'<p>No ideas match this filter.</p>';
+}
+document.addEventListener('click',e=>{
+  const st=e.target.closest('.stg');if(st){stage=st.dataset.stage;render();return}
+  const sc=e.target.closest('.sec');if(sc){sector=sc.dataset.sec;render();return}
+  const nm=e.target.closest('.nm');if(nm){e.preventDefault();const id=nm.dataset.id,d=DATA.find(x=>x.id===id);stage='All';render();const el=document.getElementById('uc-'+id);if(el){el.open=true;el.scrollIntoView({behavior:'smooth',block:'center'});el.classList.add('flash');setTimeout(()=>el.classList.remove('flash'),1400)}}
+});
+render();
+</script>
+</body>
+</html>
